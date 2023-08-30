@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeensConnect | Find Your Friends</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    animation: backgroundAnimation 15s infinite alternate;
+    background: linear-gradient(-45deg, #3498db, #2ecc71, #e74c3c, #9b59b6, #3498db);
+    background-size: 400% 400%;
+  }
+  @keyframes backgroundAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  header {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  .top-button {
+    background: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  .top-button:hover {
+    background: #2980b9;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  .intro {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(52, 73, 94, 0.3);
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .features {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    background: rgba(52, 73, 94, 0.3);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .feature {
+    flex-basis: 30%;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.2s;
+    background: rgba(44, 62, 80, 0.8);
+    color: #fff;
+    padding: 20px;
+  }
+  .bigfeature {
+    flex-basis: 100%;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.2s;
+    background: rgba(44, 62, 80, 0.8);
+    color: #fff;
+    padding: 20px;
+  }
+  .feature:hover {
+    transform: scale(1.05);
+  }
+  .bigfeature:hover {
+    transform: scale(1.15);
+  }
+  .footer {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="top-buttons">
+    <a class="top-button" href="#">Back to Home</a>
+  </div>
+  <h1 style="background: rgba(255, 255, 255, 0.2); padding: 10px; border-radius: 10px;">TeensConnect FAQ</h1>
+</header>
+<div class="container">
+  <div class="intro">
+    <h2>Welcome to the official TeensConnect FAQ!</h2>
+    <p>Things you should know or asked stuff!</p>
+  </div>
+  <div class="features">
+    <div class="feature">
+      <h3>What is TeensConnect?</h3>
+      <p>TeensConnect is a website for teenagers or children to connect to same-minded people!</p>
+    </div>
+    <div class="feature">
+      <h3>How to access TeensConnect?</h3>
+      <p>To use TeensConnect, you have to register an account on the homepage. Press "Register" on there, and you're good to go!</p>
+    </div>
+    <div class="feature">
+      <h3>Will my child be safe here?</h3>
+      <p>We try to make a safe and comfortable environment for everyone. We also filter out bots and fakes to prevent most bad things that could happen.</p>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feature">
+      <h3>Do I have to share personal data?</h3>
+      <p><b>Yes.</b> To create a safe environment for everyone, we can't let anyone secretize their real identity. Also, we will need to verify your age before you can start.</p>
+    </div>
+    <div class="feature">
+      <h3>We will never...</h3>
+      <p>We will never ask you about your payment information, bank connections or anything. This website is free and will stay free.</p>
+    </div>
+    <div class="feature">
+      <h3>We are NOT...</h3>
+      <p>We are strictly NOT a dating site. Of course, if you really think you found your special someone here, we can't block it. But dating is NOT the main purpose of this site.</p>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feature">
+      <h3>What account data will be saved?</h3>
+      <p>For others to find you, all of your public information can be seen by anyone. You're contact data will be saved, but not shared. This data will be deleted when <b>the account gets deleted</b></p>
+    </div>
+    <div class="feature">
+      <h3>Account Restrictions</h3>
+      <p>You need to be 12+, which will be verified. Otherwise, there's no restrictions! Just be yourself!</p>
+    </div>
+    <div class="feature">
+      <h3>Account Deletion</h3>
+      <p>Accounts get deleted on <b>Inactivity, Rule Breaks, and requested Deletions</b> You can request Account Deletion in your Profile Settings.</p>
+    </div>
+  </div>
+  <div class="features">
+    <div class="bigfeature">
+      <h3>Rules</h3>
+      <p>We all use our real identity here. Nicknames are allowed, but the real name should be correct.</p>
+      <p>No inappropiate content (Pictures, Messages), which is for any type of inappropiate content.</p>
+      <p>Fake Age, Fake Name, overall Bots, will be <b>deleted without warning</b></p>
+      <p></p>
+      <p>Note that chats are annonymous. Chats will only be visible for us if one of the chatters reports a message. Reporting will send us the last five messages.
+      <p><b>Common Sense</b></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
