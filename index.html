@@ -9,19 +9,20 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #3498db, #2c3e50);
-    animation: backgroundAnimation 10s infinite alternate;
+    animation: backgroundAnimation 15s infinite alternate;
+    background: linear-gradient(-45deg, #3498db, #2ecc71, #e74c3c, #9b59b6, #3498db);
+    background-size: 400% 400%;
   }
   @keyframes backgroundAnimation {
     0% {
-      background: linear-gradient(to bottom, #3498db, #2c3e50);
+      background-position: 0% 50%;
     }
     100% {
-      background: linear-gradient(to bottom, #2c3e50, #3498db);
+      background-position: 100% 50%;
     }
   }
   header {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -30,13 +31,16 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
   .intro {
     text-align: center;
     margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
   }
   .features {
     display: flex;
@@ -50,12 +54,13 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     transition: transform 0.2s;
+    background: rgba(255, 255, 255, 0.9);
   }
   .feature:hover {
     transform: scale(1.05);
   }
   .footer {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -67,7 +72,7 @@
 </head>
 <body>
 <header>
-  <h1>Teenage Connection</h1>
+  <h1 style="background: rgba(255, 255, 255, 0.2); padding: 10px; border-radius: 10px;">Teenage Connection</h1>
   <p>Find Your Friends and Connect!</p>
 </header>
 <div class="container">
