@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TeensConnect | Find Your Friends</title>
+<title>Teenage Connection | Find Your Friends</title>
 <style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f2f2f2;
   }
   header {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 20px 0;
   }
   .container {
     max-width: 1200px;
@@ -28,61 +29,56 @@
   .features {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 40px;
   }
   .feature {
-    flex-basis: 30%;
-    padding: 10px;
+    flex-basis: calc(33.33% - 20px);
+    margin: 10px;
+    padding: 20px;
     text-align: center;
-    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
-  .feature img {
-    max-width: 100px;
-    height: auto;
-    margin-bottom: 10px;
+  .feature h3 {
+    margin-top: 0;
   }
   .footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
   }
 </style>
 </head>
 <body>
 <header>
-  <h1>TeensConnect</h1>
+  <h1>Teenage Connection</h1>
   <p>Find Your Friends and Connect!</p>
 </header>
 <div class="container">
   <div class="intro">
-    <h2>Welcome to TeensConnect</h2>
+    <h2>Welcome to Teenage Connection</h2>
     <p>Connect with teenagers from around the world and make new friends!</p>
   </div>
   <div class="features">
     <div class="feature">
-      <img src="profile.png" alt="Profile Creation">
       <h3>Profile Creation</h3>
       <p>Create a unique profile and share your interests.</p>
     </div>
     <div class="feature">
-      <img src="search.png" alt="Friend Search">
       <h3>Friend Search</h3>
       <p>Search for friends based on shared hobbies and interests.</p>
     </div>
     <div class="feature">
-      <img src="message.png" alt="Private Messaging">
       <h3>Private Messaging</h3>
       <p>Send private messages and get to know each other better.</p>
     </div>
   </div>
 </div>
 <footer class="footer">
-  <p>&copy; 2023 TeensConnect. All rights reserved.</p>
+  <p>&copy; 2023 Teenage Connection. All rights reserved.</p>
 </footer>
 </body>
 </html>
