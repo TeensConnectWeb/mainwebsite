@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .background-dark {
+            background-color: #262626;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+        .margin-top {
+            margin-top: 90px;
+        }
+        .timer {
+            font-size: 50px;
+            color: white;
+            font-family: "Roboto", "sans-serif";
+        }
+    </style>
+    <script>
+        let alarm = new Audio("alarm.mp3");
+        let timerStarted = false
+        let intv
+            let fiveMinutes = 1000 * 60 * 5;
+        function startTimer() {
+            if (!timerStarted) {
+            let startTime = new Date().getTime();
+            let endTime = startTime + fiveMinutes;
+
+            intv = setInterval(function() {
+                console.log(timerStarted);
+            if (timerStarted) {
+                let timeLeft = endTime - new Date().getTime();
+                if(timeLeft>0) {
+                let minutes = timeLeft / (1000*60);
+                minutes = Math.floor(minutes);
+                let seconds = (timeLeft / 1000) % 60;
+                seconds = Math.round(seconds);
+                let text =  '' + minutes + " : " + seconds;
+                timer.innerHTML = text; } else {
+                    alarm.play();
+                    timer.innerHTML = "ALARM!!!";
+                    dlti()
+                } }
+            }, 1000);
+            timerStarted = true;
+        } 
+        }
+        function dlti() {
+            clearInterval(intv)
+            let text =  "00 : 00";
+            timer.innerHTML = text;
+        }
+        function stopTimer() {
+            timerStarted = false;
+            clearInterval(intv);
+            let text =  "00 : 00";
+            timer.innerHTML = text;
+        }
+        function minusmin() {
+            if(!timerStarted) {
+            fiveMinutes = fiveMinutes - 60000;
+            let text =  "" + fiveMinutes/60000 +" : 00";
+            timer.innerHTML = text; }
+        }
+        function plusmin() {
+            if(!timerStarted) {
+            fiveMinutes = fiveMinutes + 60000;
+            let text =  "" + fiveMinutes/60000 +" : 00";
+            timer.innerHTML = text; }
+        }
+    </script>
+</head>
+<body class="background-dark">
+    <div>
+        <img src="menu.png">
+    </div>
+    <div class="center margin-top">
+        <img src="egg.png">
+    </div>
+    <div class="center margin-top">
+        <div class="center">
+            <img onclick="minusmin()" src="minus.png">
+        </div>
+    <div class="center timer" id="timer">
+        5 : 00
+    </div>
+    <div class="center">
+        <img onclick="plusmin()" src="plus.png">
+    </div> </div>
+    <div class="center margin-top">
+        <img onclick="startTimer()" src="start.png">
+        <img onclick="stopTimer()" src="stop.png">
+    </div>
+</body>
+</html>
