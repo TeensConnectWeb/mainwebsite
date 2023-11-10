@@ -10,19 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.webmanifest">
-    <style>
-        #resultArea {
-            height: 30vh;
-            background-color: rgb(40,40,40);
-            color: white;
-            font-size: 64px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            padding: 24px;
-            box-sizing: border-box;
-        }
-    </style>
     <script>
         function appendOperation(operation) {
             document.getElementById("resultArea").innerHTML += operation;
@@ -32,13 +19,23 @@
             let result = eval(container.innerHTML);
             container.innerHTML = result;
         }
-        function deleteLast() {
+        function deleteLast(t) {
+            for (let step = 0; step < t; step++) {
             let container = document.getElementById("resultArea");
             if (container.innerHTML.endsWith(" ")) {
             container.innerHTML = container.innerHTML.slice(0, -3);
+            } else if (container.innerHTML.endsWith(" ^2 ")) {
+            container.innerHTML = container.innerHTML.slice(0, -4);
+            } else if (container.innerHTML.endsWith(" sqrt( ")) {
+            container.innerHTML = container.innerHTML.slice(0, -7);
             } else {
             container.innerHTML = container.innerHTML.slice(0, -1);
             }
+        }
+        }
+        function clear() {
+            let container = document.getElementById("resultArea");
+            container.innerHTML = container.innerHTML.slice(0, -99);
         }
     </script>
 </head>
@@ -48,9 +45,10 @@
     </div>
     <table>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td onclick="appendOperation(' ^2 ')">²</td>
+            <td onclick="appendOperation(' sqrt( ')">√</td>
+            <td onclick="appendOperation('(')">(</td>
+            <td onclick="appendOperation(')')">)</td>
             <td onclick="deleteLast()">DEL</td>
         </tr>
         <tr>
@@ -58,24 +56,28 @@
             <td onclick="appendOperation(8)">8</td>
             <td onclick="appendOperation(9)">9</td>
             <td onclick="appendOperation(' / ')" class="highlight">/</td>
+            <td onclick="deleteLast(77)">AC</td>
         </tr>
         <tr>
             <td onclick="appendOperation(4)">4</td>
             <td onclick="appendOperation(5)">5</td>
             <td onclick="appendOperation(6)">6</td>
             <td onclick="appendOperation(' + ')" class="highlight">+</td>
+            <td></td>
         </tr>
         <tr>
             <td onclick="appendOperation(1)">1</td>
             <td onclick="appendOperation(2)">2</td>
             <td onclick="appendOperation(3)">3</td>
             <td onclick="appendOperation(' * ')" class="highlight">x</td>
+            <td></td>
         </tr>
         <tr>
             <td onclick="appendOperation(0)">0</td>
             <td onclick="appendOperation(' . ')">,</td>
             <td onclick="calculateResult()" id="result">=</td>
             <td onclick="appendOperation(' - ')" class="highlight">-</td>
+            <td></td>
         </tr>
     </table>
 </body>
