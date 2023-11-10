@@ -10,6 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.webmanifest">
+    <style>
+        #resultArea {
+            height: 30vh;
+            background-color: rgb(40,40,40);
+            color: white;
+            font-size: 64px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+    </style>
     <script>
         function appendOperation(operation) {
             document.getElementById("resultArea").innerHTML += operation;
