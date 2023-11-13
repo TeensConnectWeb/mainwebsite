@@ -33,7 +33,7 @@
             let containervis = document.getElementById("resultAreaVis");
             if (container.innerHTML.endsWith(" **2 ")) {
             container.innerHTML = container.innerHTML.slice(0, -5);
-            containervis.innerHTML = containervis.innerHTML.slice(0, -5);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -3);
             } else if (container.innerHTML.endsWith(" Math.sqrt( ")) {
             container.innerHTML = container.innerHTML.slice(0, -12);
             containervis.innerHTML = containervis.innerHTML.slice(0, -4);
@@ -61,7 +61,7 @@
     </div>
     <table>
         <tr>
-            <td onclick="appendOperation(' **2 ')">²</td>
+            <td onclick="appendOperation(' **2 ', ' ² ')">²</td>
             <td onclick="appendOperation(' Math.sqrt( ', ' √( ')">√</td>
             <td onclick="appendOperation('(')">(</td>
             <td onclick="appendOperation(')')">)</td>
