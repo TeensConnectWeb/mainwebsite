@@ -50,10 +50,6 @@
             let container = document.getElementById("resultArea");
             container.innerHTML = container.innerHTML.slice(0, -99);
         }
-        function unlock() {
-            let redec = document.getElementById("resultArea").style.fontSize="64px"
-            let cnt = 64
-        }
         function smallText() {
             let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2)
             redec = redec - 6
@@ -61,7 +57,7 @@
         }
         function bigText() {
             let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2)
-            redec = redec + 6
+            redec = Number(redec) + 6
             document.getElementById("resultAreaVis").style.fontSize=redec+"px"
         }
     </script>
