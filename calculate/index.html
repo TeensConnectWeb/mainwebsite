@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.webmanifest">
     <script>
+        let redec = document.getElementById("resultArea").style.fontSize="64px"
+        let cnt = 64
         function appendOperation(operation, vop) {
             if(vop){
             document.getElementById("resultArea").innerHTML += operation;
@@ -50,6 +52,14 @@
             let container = document.getElementById("resultArea");
             container.innerHTML = container.innerHTML.slice(0, -99);
         }
+        function bigText() {
+            cnt = cnt + 6
+            let redec = document.getElementById("resultArea").style.fontSize=cnt+"px"
+        }
+        function smallText() {
+            cnt = cnt - 6
+            let redec = document.getElementById("resultArea").style.fontSize=cnt+"px"
+        }
     </script>
 </head>
 <body>
@@ -79,14 +89,14 @@
             <td onclick="appendOperation(5)">5</td>
             <td onclick="appendOperation(6)">6</td>
             <td onclick="appendOperation(' + ')" class="highlight">+</td>
-            <td></td>
+            <td onclick="bigText()" class="highlight">T+</td>
         </tr>
         <tr>
             <td onclick="appendOperation(1)">1</td>
             <td onclick="appendOperation(2)">2</td>
             <td onclick="appendOperation(3)">3</td>
             <td onclick="appendOperation(' * ')" class="highlight">x</td>
-            <td></td>
+            <td onclick="smallText()" class="highlight">T-</td>
         </tr>
         <tr>
             <td onclick="appendOperation(0)">0</td>
