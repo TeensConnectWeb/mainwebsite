@@ -11,25 +11,32 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.webmanifest">
     <script>
-        function appendOperation(operation) {
+        function appendOperation(operation, vop) {
             document.getElementById("resultArea").innerHTML += operation;
         }
         function calculateResult() {
             let container = document.getElementById("resultArea");
+            let containerv = document.getElementById("resultAreaVis");
             let result = eval(container.innerHTML);
+            containerv.innerHTML = result;
             container.innerHTML = result;
         }
         function deleteLast(t) {
             for (let step = 0; step < t; step++) {
             let container = document.getElementById("resultArea");
+            let containervis = document.getElementById("resultAreaVis");
             if (container.innerHTML.endsWith(" ")) {
             container.innerHTML = container.innerHTML.slice(0, -3);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -3);
             } else if (container.innerHTML.endsWith(" **2 ")) {
             container.innerHTML = container.innerHTML.slice(0, -5);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -5);
             } else if (container.innerHTML.endsWith(" Math.sqrt( ")) {
             container.innerHTML = container.innerHTML.slice(0, -12);
+            containervis.innerHTML = containervis.incontainer.innerHTML.slice(0, -4);
             } else {
             container.innerHTML = container.innerHTML.slice(0, -1);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -1);
             }
         }
         }
@@ -40,13 +47,16 @@
     </script>
 </head>
 <body>
-    <div id="resultArea">
+    <div hidden id="resultArea">
+        1234
+    </div>
+    <div id="resultAreaVis">
         1234
     </div>
     <table>
         <tr>
             <td onclick="appendOperation(' **2 ')">²</td>
-            <td onclick="appendOperation(' Math.sqrt( ')">√</td>
+            <td onclick="appendOperation(' Math.sqrt( ', ' √( ')">√</td>
             <td onclick="appendOperation('(')">(</td>
             <td onclick="appendOperation(')')">)</td>
             <td onclick="deleteLast()">DEL</td>
