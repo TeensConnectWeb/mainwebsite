@@ -55,12 +55,12 @@
             let cnt = 64
         }
         function smallText() {
-            let redec = document.getElementById("resultAreaVis").style.fontSize.split(0,2)
+            let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2)
             redec = redec - 6
             document.getElementById("resultAreaVis").style.fontSize=redec+"px"
         }
         function bigText() {
-            let redec = document.getElementById("resultAreaVis").style.fontSize.split(0,2)
+            let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2)
             redec = redec + 6
             document.getElementById("resultAreaVis").style.fontSize=redec+"px"
         }
