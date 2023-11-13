@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.webmanifest">
     <script>
-        let redec = document.getElementById("resultArea").style.fontSize="64px"
-        let cnt = 64
         function appendOperation(operation, vop) {
             if(vop){
             document.getElementById("resultArea").innerHTML += operation;
@@ -57,10 +55,14 @@
             let cnt = 64
         }
         function smallText() {
+            let redec = document.getElementById("resultArea").style.fontSize="64px"
+            let cnt = 64
             cnt = cnt - 6
             let redec = document.getElementById("resultArea").style.fontSize=cnt+"px"
         }
         function bigText() {
+            let redec = document.getElementById("resultArea").style.fontSize="64px"
+            let cnt = 64
             cnt = cnt + 6
             let redec = document.getElementById("resultArea").style.fontSize=cnt+"px"
         }
