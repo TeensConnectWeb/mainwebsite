@@ -3,7 +3,7 @@
     "background_color": "#141414",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/calculate/",
     "name": "Calculator",
     "short_name": "Calculator",
     "description": "Einfacher aber guter Taschenrechner",
