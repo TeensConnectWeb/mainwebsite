@@ -82,7 +82,7 @@
             <td onclick="appendOperation(8)">8</td>
             <td onclick="appendOperation(9)">9</td>
             <td onclick="appendOperation(' / ')" class="highlight">/</td>
-            <td onclick="deleteLast(77)">AC</td>
+            <td></td>
         </tr>
         <tr>
             <td onclick="appendOperation(4)">4</td>
@@ -96,14 +96,14 @@
             <td onclick="appendOperation(2)">2</td>
             <td onclick="appendOperation(3)">3</td>
             <td onclick="appendOperation(' * ')" class="highlight">x</td>
-            <td onclick="smallText()" class="highlight">T-</td>
+            <td onclick="bigText()" class="highlight">T+</td>
         </tr>
         <tr>
             <td onclick="appendOperation(0)">0</td>
             <td onclick="appendOperation(' . ')">,</td>
             <td onclick="calculateResult()" id="result">=</td>
             <td onclick="appendOperation(' - ')" class="highlight">-</td>
-            <td></td>
+            <td onclick="smallText()" class="highlight">T-</td>
         </tr>
     </table>
 </body>
