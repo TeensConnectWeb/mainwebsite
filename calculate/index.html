@@ -55,16 +55,14 @@
             let cnt = 64
         }
         function smallText() {
-            let redec = document.getElementById("resultArea").style.fontSize="64px"
-            let cnt = 64
-            cnt = cnt - 6
-            document.getElementById("resultArea").style.fontSize=cnt+"px"
+            let redec = document.getElementById("resultAreaVis").style.fontSize.split(0,2)
+            redec = redec - 6
+            document.getElementById("resultArea").style.fontSize=redec+"px"
         }
         function bigText() {
-            let redec = document.getElementById("resultArea").style.fontSize="64px"
-            let cnt = 64
-            cnt = cnt + 6
-            document.getElementById("resultArea").style.fontSize=cnt+"px"
+            let redec = document.getElementById("resultAreaVis").style.fontSize.split(0,2)
+            redec = redec + 6
+            document.getElementById("resultArea").style.fontSize=redec+"px"
         }
     </script>
 </head>
@@ -72,7 +70,7 @@
     <div hidden id="resultArea">
         1234
     </div>
-    <div id="resultAreaVis">
+    <div id="resultAreaVis" style="font-size: 64px;">
         1234
     </div>
     <table>
