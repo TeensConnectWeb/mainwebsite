@@ -12,8 +12,13 @@
     <link rel="manifest" href="manifest.webmanifest">
     <script>
         function appendOperation(operation, vop) {
+            if(vop){
             document.getElementById("resultArea").innerHTML += operation;
             document.getElementById("resultAreaVis").innerHTML += vop;
+            } else {
+            document.getElementById("resultArea").innerHTML += operation;
+            document.getElementById("resultAreaVis").innerHTML += operation;
+            }
         }
         function calculateResult() {
             let container = document.getElementById("resultArea");
