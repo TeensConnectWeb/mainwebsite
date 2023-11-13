@@ -20,6 +20,15 @@ td:hover {
     cursor: pointer;
 }
 #resultArea {
+    height: 0vh;
+    background-color: rgb(40,40,40);
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+#resultAreaVis {
     height: 30vh;
     background-color: rgb(40,40,40);
     color: white;
