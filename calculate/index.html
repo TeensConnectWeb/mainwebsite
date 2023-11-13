@@ -52,12 +52,16 @@
             let container = document.getElementById("resultArea");
             container.innerHTML = container.innerHTML.slice(0, -99);
         }
-        function bigText() {
-            cnt = cnt + 6
-            let redec = document.getElementById("resultArea").style.fontSize=cnt+"px"
+        function unlock() {
+            let redec = document.getElementById("resultArea").style.fontSize="64px"
+            let cnt = 64
         }
         function smallText() {
             cnt = cnt - 6
+            let redec = document.getElementById("resultArea").style.fontSize=cnt+"px"
+        }
+        function bigText() {
+            cnt = cnt + 6
             let redec = document.getElementById("resultArea").style.fontSize=cnt+"px"
         }
     </script>
