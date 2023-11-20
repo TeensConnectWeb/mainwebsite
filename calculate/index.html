@@ -24,6 +24,7 @@
             let container = document.getElementById("resultArea");
             let containerv = document.getElementById("resultAreaVis");
             let result = eval(container.innerHTML);
+            result = Math.floor(result*1000)/1000
             containerv.innerHTML = result;
             container.innerHTML = result;
         }
@@ -37,6 +38,36 @@
             } else if (container.innerHTML.endsWith(" Math.sqrt( ")) {
             container.innerHTML = container.innerHTML.slice(0, -12);
             containervis.innerHTML = containervis.innerHTML.slice(0, -4);
+            } else if (container.innerHTML.endsWith(" **3 ")) {
+            container.innerHTML = container.innerHTML.slice(0, -5);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -3);
+            } else if (container.innerHTML.endsWith(" ** ")) {
+            container.innerHTML = container.innerHTML.slice(0, -4);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -3);
+            } else if (container.innerHTML.endsWith(" Math.cbrt( ")) {
+            container.innerHTML = container.innerHTML.slice(0, -12);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -4);
+            } else if (container.innerHTML.endsWith(" Math.sin( ")) {
+            container.innerHTML = container.innerHTML.slice(0, -11);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -6);
+            } else if (container.innerHTML.endsWith(" Math.cos( ")) {
+            container.innerHTML = container.innerHTML.slice(0, -11);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -6);
+            } else if (container.innerHTML.endsWith(" Math.log( ")) {
+            container.innerHTML = container.innerHTML.slice(0, -11);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -6);
+            } else if (container.innerHTML.endsWith(" Math.tan( ")) {
+            container.innerHTML = container.innerHTML.slice(0, -11);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -6);
+            } else if (container.innerHTML.endsWith(" Math.pow(10,1000) ")) {
+            container.innerHTML = container.innerHTML.slice(0, -19);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -3);
+            } else if (container.innerHTML.endsWith(" Math.PI( ")) {
+            container.innerHTML = container.innerHTML.slice(0, -10);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -3);
+            } else if (container.innerHTML.endsWith(" Math.E ")) {
+            container.innerHTML = container.innerHTML.slice(0, -8);
+            containervis.innerHTML = containervis.innerHTML.slice(0, -3);
             } else if (container.innerHTML.endsWith(" ")) {
             container.innerHTML = container.innerHTML.slice(0, -3);
             containervis.innerHTML = containervis.innerHTML.slice(0, -3);
@@ -51,14 +82,40 @@
             container.innerHTML = container.innerHTML.slice(0, -99);
         }
         function smallText() {
-            let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2)
-            redec = redec - 6
-            document.getElementById("resultAreaVis").style.fontSize=redec+"px"
+            let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2);
+            redec = redec - 6;
+            document.getElementById("resultAreaVis").style.fontSize=redec+"px";
         }
         function bigText() {
-            let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2)
-            redec = Number(redec) + 6
-            document.getElementById("resultAreaVis").style.fontSize=redec+"px"
+            let redec = document.getElementById("resultAreaVis").style.fontSize.slice(0,2);
+            redec = Number(redec) + 6;
+            document.getElementById("resultAreaVis").style.fontSize=redec+"px";
+        }
+        function forlist() {
+            document.getElementById("firstlist").style.display = "none";
+            document.getElementById("secondlist").style.display = "table";
+        }
+        function backlist() {
+            document.getElementById("firstlist").style.display = "table";
+            document.getElementById("secondlist").style.display = "none";
+        }
+        function RGB() {
+            var rgc = 0
+            var intervalID = window.setInterval(myCallback, 1);
+
+            let lisv = document.getElementsByTagName("td");
+
+            for (let index = 0; index < lisv.length; index++) {
+            var intervalID = window.setInterval(loop, 1);
+            function loop() {
+            lisv[index].style.color="hwb("+rgc+" 0% 0%)"
+            }
+            }
+
+            function myCallback() {
+            document.getElementById("resultAreaVis").style.color="hwb("+rgc+" 0% 0%)"
+            rgc=rgc+1
+            }
         }
     </script>
 </head>
@@ -69,7 +126,7 @@
     <div id="resultAreaVis" style="font-size: 64px;">
         1234
     </div>
-    <table>
+    <table id="firstlist">
         <tr>
             <td onclick="appendOperation(' **2 ', ' ² ')">²</td>
             <td onclick="appendOperation(' Math.sqrt( ', ' √( ')">√</td>
@@ -89,7 +146,7 @@
             <td onclick="appendOperation(5)">5</td>
             <td onclick="appendOperation(6)">6</td>
             <td onclick="appendOperation(' + ')" class="highlight">+</td>
-            <td></td>
+            <td onclick="forlist()" class="highlight">▶</td>
         </tr>
         <tr>
             <td onclick="appendOperation(1)">1</td>
@@ -100,9 +157,46 @@
         </tr>
         <tr>
             <td onclick="appendOperation(0)">0</td>
-            <td onclick="appendOperation(' . ')">,</td>
+            <td onclick="appendOperation('.')">,</td>
             <td onclick="calculateResult()" id="result">=</td>
             <td onclick="appendOperation(' - ')" class="highlight">-</td>
+            <td onclick="smallText()" class="highlight">T-</td>
+        </tr>
+    </table>
+    <table id="secondlist" style="display: none;">
+        <tr>
+            <td onclick="appendOperation(' Math.sin( ', ' sin( ')">sin(</td>
+            <td onclick="appendOperation(' Math.cos( ', ' cos( ')">cos(</td>
+            <td onclick="appendOperation(' Math.tan( ', ' tan( ')">tan(</td>
+            <td onclick="appendOperation(' Math.log( ', ' log( ')">log(</td>
+            <td onclick="deleteLast(1)">DEL</td>
+        </tr>
+        <tr>
+            <td onclick="appendOperation(' Math.PI ', ' π ')">π</td>
+            <td onclick="appendOperation(' Math.E ', ' e ')">e</td>
+            <td onclick="appendOperation(' Math.cbrt( ', ' ∛( ')">∛</td>
+            <td onclick="appendOperation(' **3 ', ' ³ ')">³</td>
+            <td onclick="deleteLast(77)">AC</td>
+        </tr>
+        <tr>
+            <td onclick="appendOperation(' ** ', ' ^ ')">^?</td>
+            <td onclick="appendOperation(' Math.pow(10,1000) ', ' ∞ ')">∞</td>
+            <td></td>
+            <td></td>
+            <td onclick="backlist()" class="highlight">◀</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td onclick="RGB()" class="highlight">Ʀ</td>
+            <td onclick="bigText()" class="highlight">T+</td>
+        </tr>
+        <tr>
+            <td onclick="appendOperation('(')">(</td>
+            <td onclick="appendOperation(')')">)</td>
+            <td onclick="calculateResult()" id="result">=</td>
+            <td></td>
             <td onclick="smallText()" class="highlight">T-</td>
         </tr>
     </table>
