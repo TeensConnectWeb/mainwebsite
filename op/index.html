@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            height: 100vh;
+            width: 100vh;
+            font-size: 100vh;
+        }
+    </style>
+</head>
+<button onclick="wawb()">ill be</button>
+    <script>
+        function wawb() { 
+        let alarm = new Audio("alarm.mp3");
+            intv = setInterval(function() {
+            alarm.play();
+                }, 1000);
+        }
+    </script>
+</body>
+</html>
