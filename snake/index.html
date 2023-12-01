@@ -47,8 +47,8 @@
     <script>
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext('2d');
-        let rows=25;
-        let cols=25;
+        let rows=20;
+        let cols=22;
         let score=0;
 	var audio = new Audio('food.wav');
         var high = localStorage["high"];
@@ -80,7 +80,7 @@
         let direction = "LEFT";
         let foodCollected=0;
 
-        setInterval(gameLoop, 100);
+        setInterval(gameLoop, 99);
         document.addEventListener('keydown', keyDown);
 
         placeFood();
@@ -89,7 +89,11 @@
         function placeFood() {
             let randomX = Math.floor(Math.random() * cols);
             let randomY = Math.floor(Math.random() * rows);
-
+            let touchSpike=spikes.find(part => part.x == randomX && part.y == randomY);
+            if(touchSpike) {
+            randomX = Math.floor(Math.random() * cols);
+            randomY = Math.floor(Math.random() * rows);
+            }
             food = {x:randomX,y:randomY};
         }
         function addSpike() {
@@ -100,12 +104,23 @@
         }
 
         function draw() {
-            ctx.fillStyle="green";
-            ctx.fillRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle="cyan";
+            let cccc=0;
+            for (let index = 0; index < canvas.width; index+=cellWidth) {
+            for (let index1 = 0; index1 < canvas.height; index1+=cellHeight) {
+                if(cccc==0){
+            ctx.fillStyle="rgb(0, 243, 0)";
+            cccc=1
+                } else if(cccc==1){
+            ctx.fillStyle="rgb(0, 229, 0)";
+            cccc=0
+                } 
+            ctx.fillRect(index,index1,cellWidth,cellHeight);
+            }
+            }
+            ctx.fillStyle="white";
             snake.slice(0,1).forEach(part => add(part.x,part.y))
 
-            ctx.fillStyle="lightgreen";
+            ctx.fillStyle="cyan";
             
             snake.slice(1).forEach(part => add(part.x,part.y))
 
@@ -127,7 +142,7 @@
             let duplicatePart=otherParts.find(part => part.x == firstPart.x && part.y == firstPart.y);
             let touchSpike=spikes.find(part => part.x == firstPart.x && part.y == firstPart.y);
 
-            if(snake[0].x < 0 || snake[0].x > cols-1 || snake[0].y < 0 || snake[0].y > rows - 1 || duplicatePart || touchSpike){
+            if(snake[0].x < 0 || snake[0].x > cols-1 || snake[0].y < 0 || snake[0].y > rows +1 || duplicatePart || touchSpike){
                 placeFood();
                 spikes=[];
                 addSpike();
@@ -138,13 +153,13 @@
                 }
                 score=0;
                 snake=[{
-                    x:19,
+                    x:9,
                     y:3
                 },{
-                    x:20,
+                    x:10,
                     y:3
                 },{
-                    x:21,
+                    x:11,
                     y:3
                 }];
                 direction="LEFT";
@@ -186,28 +201,28 @@
             }
         }
         function keyDown(e){
-            if(e.keyCode==37) {
+            if(e.keyCode==37 && direction!="RIGHT") {
                 direction = "LEFT";
             }
-            if(e.keyCode==38) {
+            if(e.keyCode==38 && direction!="DOWN") {
                 direction = "UP";
             }
-            if(e.keyCode==39) {
+            if(e.keyCode==39 && direction!="LEFT") {
                 direction = "RIGHT";
             }
-            if(e.keyCode==40) {
+            if(e.keyCode==40 && direction!="UP") {
                 direction = "DOWN";
             }
-            if(e.keyCode==65) {
+            if(e.keyCode==65 && direction!="RIGHT") {
                 direction = "LEFT";
             }
-            if(e.keyCode==87) {
+            if(e.keyCode==87 && direction!="DOWN") {
                 direction = "UP";
             }
-            if(e.keyCode==68) {
+            if(e.keyCode==68 && direction!="LEFT") {
                 direction = "RIGHT";
             }
-            if(e.keyCode==83) {
+            if(e.keyCode==83 && direction!="UP") {
                 direction = "DOWN";
             }
         }
